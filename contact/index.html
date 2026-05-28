@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | Le Mouchire</title>
+  <link rel="stylesheet" href="../home/style.css">
+</head>
+
+<body class="contact-page">
+
+<header class="main-header">
+<a href="../home/index.html" class="logo">LE MOUCHIRE</a>
+  <nav>
+    <a href="../home/index.html">Home</a>
+    <a href="../Tissues/index.html">Tissues</a>
+    <a href="../contact/index.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<section class="contact-hero">
+  <h1>Get in Touch</h1>
+  <p>Bulk orders, dealership & business inquiries</p>
+</section>
+
+<section class="contact-center">
+<form class="contact-form" id="contactForm" onsubmit="return false;">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="text" name="phone" placeholder="Phone Number">
+  
+  <textarea name="message" placeholder="Your Message" required></textarea>
+
+  <button type="submit">Send Inquiry</button>
+
+  <div id="msg" style="margin-top:15px;"></div>
+</form>
+
+  <section class="map-section">
+    <h2>Our Location</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.997515642255!2d75.95291437562588!3d30.849795074527968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391077002ce8779d%3A0x36b0df5dac7954f8!2sAAR%20ESS%20ENTERPRISES!5e1!3m2!1sen!2sin!4v1771407122145!5m2!1sen!2sin"
+      width="600"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+</section>
+
+<!-- ✅ IMPORTANT: Only this line -->
+<script src="script.js"></script>
+
+</body>
+</html>

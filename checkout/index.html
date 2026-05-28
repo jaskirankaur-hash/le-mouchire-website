@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout | Le Mouchire</title>
+  <link rel="stylesheet" href="../home/style.css">
+</head>
+<body>
+
+<div class="checkout-container">
+  <h2>Checkout</h2>
+
+  <input type="text" id="name" placeholder="Full Name">
+  <input type="email" id="email" placeholder="Email Address">
+  <input type="text" id="phone" placeholder="Phone Number">
+  <textarea id="address" placeholder="Full Address"></textarea>
+
+  <label class="payment-label">Select Payment Method</label>
+
+  <select id="payment">
+    <option value="COD">Cash on Delivery</option>
+    <option value="UPI">UPI</option>
+  </select>
+
+  <div id="upi-box" style="display:none; margin-top:10px;">
+    <p><b>Pay via UPI:</b></p>
+    <p>9876543210@upi</p>
+    <p>After payment, click Place Order</p>
+  </div>
+
+  <div id="product"></div>
+
+  <button id="place-btn" class="buy-btn">Place Order</button>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

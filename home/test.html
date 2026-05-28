@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Backend</title>
+</head>
+<body>
+
+  <button onclick="checkBackend()">Check Backend</button>
+
+  <script>
+    function checkBackend() {
+      fetch("http://localhost:5000")
+        .then(res => res.text())
+        .then(data => {
+          alert(data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  </script>
+
+</body>
+</html>

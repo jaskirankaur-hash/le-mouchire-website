@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+</head>
+
+<body>
+
+<h1>Welcome Admin 🎉</h1>
+
+<h3>Total Users: <span id="users">Loading...</span></h3>
+<h3>Total Orders: <span id="orders">Loading...</span></h3>
+<h3>Total Messages: <span id="messages">Loading...</span></h3>
+
+<button onclick="logout()">Logout</button>
+
+<hr>
+
+<h2>Add Product</h2>
+
+<input type="text" id="name" placeholder="Product Name">
+<input type="number" id="price" placeholder="Price">
+<input type="number" id="stock" placeholder="Stock">
+<input type="text" id="category" placeholder="Category">
+<input type="file" id="image">
+
+<button onclick="addProduct()">Add Product</button>
+
+<hr>
+
+<h2>All Products</h2>
+
+<ul id="productList"></ul>
+
+<script>
+
+// ================= LOGOUT =================
+function logout(){
+  window.location.href = "login.html";
+}
+
+
+// ================= DASHBOARD DATA =================
+fetch("http://localhost:5000/api/admin/data")
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("users").innerText = data.totalUsers;
+document.getElementById("orders").innerText = data.totalOrders;
+document.getElementById("messages").innerText = data.totalMessages;
+
+})
+.catch(err => console.log(err));
+
+
+// ================= ADD PRODUCT =================
+async function addProduct(){
+
+const formData = new FormData();
+
+formData.append("name", document.getElementById("name").value);
+formData.append("price", document.getElementById("price").value);
+formData.append("stock", document.getElementById("stock").value);
+formData.append("category", document.getElementById("category").value);
+formData.append("image", document.getElementById("image").files[0]);
+
+await fetch("http://localhost:5000/api/admin/products",{
+
+method:"POST",
+body:formData
+
+});
+
+alert("Product Added Successfully ✅");
+
+loadProducts();
+
+}
+
+
+// ================= LOAD PRODUCTS =================
+async function loadProducts(){
+
+const res = await fetch("http://localhost:5000/api/admin/products");
+
+const data = await res.json();
+
+const list = document.getElementById("productList");
+
+list.innerHTML = "";
+
+data.forEach(product => {
+
+list.innerHTML += `
+<li>
+
+<img src="http://localhost:5000/uploads/${product.image}" width="60"><br>
+
+${product.name} - ₹${product.price} - Stock: ${product.stock}
+
+<button onclick="deleteProduct('${product._id}')">Delete</button>
+
+</li>
+`;
+
+});
+
+}
+
+
+// ================= DELETE PRODUCT =================
+async function deleteProduct(id){
+
+if(confirm("Are you sure you want to delete this product?")){
+
+await fetch(`http://localhost:5000/api/admin/products/${id}`,{
+
+method:"DELETE"
+
+});
+
+loadProducts();
+
+}
+
+}
+
+
+// ================= PAGE LOAD =================
+loadProducts();
+
+</script>
+</body>
+</html>

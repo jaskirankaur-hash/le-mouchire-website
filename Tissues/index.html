@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tissue Products</title>
+    <link rel="stylesheet" href="../home/style.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER / NAVBAR ===== -->
+<header class="main-header">
+    <a href="../home/index.html" class="logo">LE MOUCHIRE</a>
+    <nav>
+        <a href="../home/index.html">Home</a>
+        <a href="../Tissues/index.html">Tissues</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../wishlist/index.html">❤️</a>
+    <a href="../cart/index.html" class="cart-link">
+  🛒  (<span id="cart-count">0</span>)
+</a>
+    </nav>
+</header>
+
+
+<!-- ===== TITLE ===== -->
+<h2 class="title">Our Tissue Products</h2>
+
+<div class="search-box">
+
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search products..."
+    onkeyup="searchProducts()"
+  >
+
+</div>
+
+
+<!-- ===== PRODUCT SECTION ===== -->
+<section class="product-section">
+  <div class="product-grid">
+   
+    <a href="napkintissue.html" class="product-link">
+     <div class="product-card">
+      <img src="../home/images/Napkin Tissues.jpg" alt="Napkin">
+      <h3>Napkin Tissues</h3>
+      <p>₹120</p>
+    </div>
+    </a>
+    
+    <a href="kichenroll.html" class="product-link">
+    <div class="product-card">
+      <img src="../home/images/kitchen towel.jpg" alt="kitchen">
+      <h3>Kitchen Rolls</h3>
+      <p>₹150</p>
+    </div>
+    </a>
+
+    <a href="toiletpaper.html" class="product-link">
+    <div class="product-card">
+      <img src="../home/images/Toilet Tissues.jpg" alt="Toilet">
+      <h3>Toilet Rolls</h3>
+      <p>₹150</p>
+    </div>
+    </a>
+
+    <a href="foilpaper.html" class="product-link"> 
+    <div class="product-card">
+      <img src="../home/images/Foil papers.jpg">
+      <h3>Foil Papers</h3>
+      <p>₹150</p>
+    </div>
+    </a>
+
+    <a href="butterpaper.html" class="product-link">
+    <div class="product-card">
+      <img src="../home/images/Designbutter paper.jpg">
+      <h3>Butter papers</h3>
+      <p>₹150</p>
+    </div>
+    </a>
+
+    <a href="clingfilm.html" class="product-link">
+    <div class="product-card">
+      <img src="../home/images/cling film.jpg">
+      <h3>Cling films</h3>
+      <p>₹150</p>
+    </div>
+    </a>
+
+    <a href="spoon.html" class="product-link">
+    <div class="product-card">
+      <img src="../home/images/spoons.jpg">
+      <h3>Spoons</h3>
+      <p>₹150</p>
+    </div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div class="tissue-footer">
+    <p>© 2008 LE MOUCHIRE | All Rights Reserved</p>
+</div>
+<script src="../home/script.js"></script>
+
+<script>
+
+function searchProducts() {
+
+  let input = document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+  let products = document.querySelectorAll(".product-link");
+
+  products.forEach(product => {
+
+    let text = product.innerText.toLowerCase();
+
+    if (text.includes(input)) {
+
+      product.style.display = "inline-block";
+
+    } else {
+
+      product.style.display = "none";
+
+    }
+
+  });
+
+}
+
+</script>
+</body>
+</html>
